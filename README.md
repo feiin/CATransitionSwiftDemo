@@ -31,3 +31,6 @@ Swift语言版本CALayer下的CATransition各种动画实现效果
 demo效果
 
 ![demo](./demo.gif)
+
+
+参考OC版本实现https://github.com/lizelu/CATransitionDemo
