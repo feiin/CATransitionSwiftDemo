@@ -174,7 +174,7 @@ class ViewController: UIViewController {
         //设置运动速度
         animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
         
-        self.view.layer.addAnimation(animation, forKey: "animation")
+        view.layer.addAnimation(animation, forKey: "animation")
         
     }
     
