@@ -55,7 +55,7 @@ class ViewController: UIViewController {
     
     @IBAction func tapButton(sender: AnyObject) {
         
-        var button = sender as UIButton
+        var button = sender as! UIButton
         
         var animationType = AnimationType(rawValue: button.tag)!
         
