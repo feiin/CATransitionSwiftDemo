@@ -55,9 +55,9 @@ class ViewController: UIViewController {
     
     @IBAction func tapButton(sender: AnyObject) {
         
-        var button = sender as! UIButton
+        let button = sender as! UIButton
         
-        var animationType = AnimationType(rawValue: button.tag)!
+        let animationType = AnimationType(rawValue: button.tag)!
         
         
         var subTypeString:String
@@ -136,8 +136,6 @@ class ViewController: UIViewController {
         case .FlipFromRight:
             self.animationWithView(self.view, withAnimationTransition: UIViewAnimationTransition.FlipFromRight)
             
-        default:
-            break
         }
         
         if (imageType == 0) {
@@ -157,7 +155,7 @@ class ViewController: UIViewController {
     func transitionWithType(type:String,withSubType subType:String,forView view:UIView){
         
         //创建CATransition对象
-        var animation = CATransition()
+        let animation = CATransition()
         
          //设置运动时间
         animation.duration = duration
