@@ -10,22 +10,22 @@ import UIKit
 
 
 enum AnimationType:Int {
-    case Fade = 1,                   //淡入淡出
-    Push,                       //推挤
-    Reveal,                     //揭开
-    MoveIn,                     //覆盖
-    Cube,                       //立方体
-    SuckEffect,                 //吮吸
-    OglFlip,                    //翻转
-    RippleEffect,               //波纹
-    PageCurl,                   //翻页
-    PageUnCurl,                 //反翻页
-    CameraIrisHollowOpen,       //开镜头
-    CameraIrisHollowClose,      //关镜头
-    CurlDown,                   //下翻页
-    CurlUp,                     //上翻页
-    FlipFromLeft,               //左翻转
-    FlipFromRight             //右翻转
+    case fade = 1,                   //淡入淡出
+    push,                       //推挤
+    reveal,                     //揭开
+    moveIn,                     //覆盖
+    cube,                       //立方体
+    suckEffect,                 //吮吸
+    oglFlip,                    //翻转
+    rippleEffect,               //波纹
+    pageCurl,                   //翻页
+    pageUnCurl,                 //反翻页
+    cameraIrisHollowOpen,       //开镜头
+    cameraIrisHollowClose,      //关镜头
+    curlDown,                   //下翻页
+    curlUp,                     //上翻页
+    flipFromLeft,               //左翻转
+    flipFromRight             //右翻转
     
 }
 
@@ -53,7 +53,7 @@ class ViewController: UIViewController {
     }
     
     
-    @IBAction func tapButton(sender: AnyObject) {
+    @IBAction func tapButton(_ sender: AnyObject) {
         
         let button = sender as! UIButton
         
@@ -85,56 +85,56 @@ class ViewController: UIViewController {
         }
         
         switch(animationType){
-        case .Fade:
+        case .fade:
             self.transitionWithType(kCATransitionFade, withSubType: subTypeString, forView: self.view)
           
-        case .Push:
+        case .push:
             self.transitionWithType(kCATransitionPush, withSubType: subTypeString, forView: self.view)
-        case .Reveal:
+        case .reveal:
             self.transitionWithType(kCATransitionReveal, withSubType: subTypeString, forView: self.view)
-        case .MoveIn:
+        case .moveIn:
             self.transitionWithType(kCATransitionMoveIn, withSubType: subTypeString, forView: self.view)
            
             
-        case .Cube:
+        case .cube:
             self.transitionWithType("cube", withSubType: subTypeString, forView: self.view)
             
-        case .SuckEffect:
+        case .suckEffect:
             self.transitionWithType("suckEffect", withSubType: subTypeString, forView: self.view)
             
-        case .OglFlip:
+        case .oglFlip:
             self.transitionWithType("oglFlip", withSubType: subTypeString, forView: self.view)
             
-        case .RippleEffect:
+        case .rippleEffect:
             self.transitionWithType("rippleEffect", withSubType: subTypeString, forView: self.view)
             
-        case .PageCurl:
+        case .pageCurl:
             self.transitionWithType("pageCurl", withSubType: subTypeString, forView: self.view)
             
-        case .PageUnCurl:
+        case .pageUnCurl:
             self.transitionWithType("pageUnCurl", withSubType: subTypeString, forView: self.view)
          
             
-        case .CameraIrisHollowOpen:
+        case .cameraIrisHollowOpen:
             self.transitionWithType("cameraIrisHollowOpen", withSubType: subTypeString, forView: self.view)
-        case .CameraIrisHollowClose:
+        case .cameraIrisHollowClose:
             self.transitionWithType("cameraIrisHollowClose", withSubType: subTypeString, forView: self.view)
             
-        case .CurlDown:
+        case .curlDown:
             
-            self.animationWithView(self.view, withAnimationTransition: UIViewAnimationTransition.CurlDown)
+            self.animationWithView(self.view, withAnimationTransition: UIViewAnimationTransition.curlDown)
            
-        case .CurlUp:
-            self.animationWithView(self.view, withAnimationTransition: UIViewAnimationTransition.CurlUp)
+        case .curlUp:
+            self.animationWithView(self.view, withAnimationTransition: UIViewAnimationTransition.curlUp)
             
-        case .FlipFromLeft:
+        case .flipFromLeft:
       
-            self.animationWithView(self.view, withAnimationTransition: UIViewAnimationTransition.FlipFromLeft)
+            self.animationWithView(self.view, withAnimationTransition: UIViewAnimationTransition.flipFromLeft)
             
 
             
-        case .FlipFromRight:
-            self.animationWithView(self.view, withAnimationTransition: UIViewAnimationTransition.FlipFromRight)
+        case .flipFromRight:
+            self.animationWithView(self.view, withAnimationTransition: UIViewAnimationTransition.flipFromRight)
             
         }
         
@@ -152,7 +152,7 @@ class ViewController: UIViewController {
 
     
     // MARK: CATransition动画实现
-    func transitionWithType(type:String,withSubType subType:String,forView view:UIView){
+    func transitionWithType(_ type:String,withSubType subType:String,forView view:UIView){
         
         //创建CATransition对象
         let animation = CATransition()
@@ -172,23 +172,23 @@ class ViewController: UIViewController {
         //设置运动速度
         animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
         
-        view.layer.addAnimation(animation, forKey: "animation")
+        view.layer.add(animation, forKey: "animation")
         
     }
     
     // MARK: UIView实现动画
-    func animationWithView(view:UIView,withAnimationTransition transition:UIViewAnimationTransition){
+    func animationWithView(_ view:UIView,withAnimationTransition transition:UIViewAnimationTransition){
         
-        UIView.animateWithDuration(duration, animations: {
+        UIView.animate(withDuration: duration, animations: {
             
-            UIView.setAnimationCurve(UIViewAnimationCurve.EaseInOut)
-            UIView.setAnimationTransition(transition, forView: view, cache: true)
+            UIView.setAnimationCurve(UIViewAnimationCurve.easeInOut)
+            UIView.setAnimationTransition(transition, for: view, cache: true)
         
         })
     }
     
      // MARK: 给View添加背景图
-    func addBgImageWithImageName(imageName:String){
+    func addBgImageWithImageName(_ imageName:String){
         
         self.view.backgroundColor = UIColor(patternImage:UIImage(named: imageName)!)
         
